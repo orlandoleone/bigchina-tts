@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"bytes"
 	"os"
 	"time"
 
