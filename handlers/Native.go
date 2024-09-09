@@ -50,7 +50,5 @@ func (n *Native) Play(fileName string) error {
 		time.Sleep(10*time.Second)
 	}
 
-	err = player.Close()
-
 	return err
 }
