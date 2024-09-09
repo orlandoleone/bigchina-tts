@@ -27,10 +27,19 @@ func (n *Native) Play(fileName string) error {
 		return err
 	}
 
-	numOfChannels := 2
-	audioBitDepth := 2
+	op := &oto.NewContextOptions{}
 
-	otoCtx, readyChan, err := oto.NewContext(decodedMp3.SampleRate(), numOfChannels, audioBitDepth)
+    	// Usually 44100 or 48000. Other values might cause distortions in Oto
+    	op.SampleRate = 44100
+
+    	// Number of channels (aka locations) to play sounds from. Either 1 or 2.
+    	// 1 is mono sound, and 2 is stereo (most speakers are stereo). 
+    	op.ChannelCount = 2
+
+    	// Format of the source. go-mp3's format is signed 16bit integers.
+    	op.Format = oto.FormatSignedInt16LE
+
+	otoCtx, readyChan, err := oto.NewContext(op)
 	if err != nil {
 		return err
 	}
