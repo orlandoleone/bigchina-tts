@@ -1,4 +1,4 @@
-module github.com/hegedustibor/htgo-tts
+module github.com/orlandoleone/bigchina-tts
 
 go 1.17
 
