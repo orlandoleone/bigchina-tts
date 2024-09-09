@@ -14,15 +14,13 @@ type Native struct {
 
 func (n *Native) Play(fileName string) error {
 	// Read the mp3 file into memory
-	fileBytes, err := os.ReadFile(fileName)
+	file, err := os.Open(fileName)
 	if err != nil {
 		return err
 	}
 
-	fileBytesReader := bytes.NewReader(fileBytes)
-
 	// Decode file
-	decodedMp3, err := mp3.NewDecoder(fileBytesReader)
+	decodedMp3, err := mp3.NewDecoder(file)
 	if err != nil {
 		return err
 	}
