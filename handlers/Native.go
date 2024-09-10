@@ -46,9 +46,9 @@ func (n *Native) Play(fileName string) error {
 
 	player.Play()
 
-	for player.IsPlaying() {
-		time.Sleep(10*time.Second)
-	}
+	time.Sleep(8*time.Second)
 
+	err = player.Close()
+	
 	return err
 }
