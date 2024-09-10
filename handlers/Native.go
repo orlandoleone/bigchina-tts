@@ -20,9 +20,11 @@ func (n *Native) Play(fileName string) error {
 
 	// Decode file
 	decodedMp3, err := mp3.NewDecoder(file)
+	/*
 	if err != nil {
 		return err
 	}
+ 	*/
 
 	op := &oto.NewContextOptions{}
 
@@ -37,9 +39,13 @@ func (n *Native) Play(fileName string) error {
     	op.Format = oto.FormatSignedInt16LE
 
 	otoCtx, readyChan, err := oto.NewContext(op)
+
+	/*
 	if err != nil {
 		return err
 	}
+ 	*/
+	
 	<-readyChan
 
 	player := otoCtx.NewPlayer(decodedMp3)
