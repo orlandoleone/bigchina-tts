@@ -72,6 +72,8 @@ func (n *Native) Play(fileName string, f int) error {
 
 	fmt.Print("i ")
 
+	_ = readyChan
+
 	time.Sleep(time.Second)
 
 	fmt.Print("j ")
