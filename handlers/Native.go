@@ -54,7 +54,11 @@ func (n *Native) Play(fileName string, flag int) error {
 	fmt.Print("h ")
 
 	var otoCtx *oto.Context
+
+	fmt.Print("h1 ")
 	var readyChan chan struct{}
+
+	fmt.Print("h2 ")
 
 	if flag == 0 {
 		otoCtx, readyChan, err = oto.NewContext(op)
@@ -66,9 +70,9 @@ func (n *Native) Play(fileName string, flag int) error {
 	}
  	*/
 
-	<-readyChan
-
 	fmt.Print("i ")
+
+	<-readyChan
 
 	fmt.Print("j ")
 
