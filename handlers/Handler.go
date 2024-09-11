@@ -1,5 +1,5 @@
 package handlers
 
 type PlayerInterface interface {
-	Play(fileName string) error
+	Play(fileName string, flag int) error
 }
