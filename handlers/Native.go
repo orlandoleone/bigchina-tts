@@ -53,7 +53,7 @@ func (n *Native) Play(fileName string, flag int) error {
 
 	fmt.Print("h ")
 
-	var otoCtx oto.*Context
+	var otoCtx *oto.Context
 	var readyChan chan struct{}
 
 	if flag == 0 {
