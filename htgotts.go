@@ -47,17 +47,17 @@ func (speech *Speech) CreateSpeechFile(text string, fileName string) (string, er
 }
 
 // Plays an existent .mp3 file
-func (speech *Speech) PlaySpeechFile(fileName string) error {
+func (speech *Speech) PlaySpeechFile(fileName string, flag int) error {
 	if speech.Handler == nil {
 		mplayer := handlers.MPlayer{}
 		return mplayer.Play(fileName)
 	}
 
-	return speech.Handler.Play(fileName)
+	return speech.Handler.Play(fileName, flag)
 }
 
 // Speak downloads speech and plays it using mplayer
-func (speech *Speech) Speak(text string) error {
+func (speech *Speech) Speak(text string, flag int) error {
 
 	var err error
 	generatedHashName := speech.generateHashName(text)
@@ -67,7 +67,7 @@ func (speech *Speech) Speak(text string) error {
 		return err
 	}
 
-	return speech.PlaySpeechFile(fileName)
+	return speech.PlaySpeechFile(fileName, flag)
 }
 
 /**
