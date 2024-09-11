@@ -53,9 +53,8 @@ func (n *Native) Play(fileName string, flag int) error {
 
 	fmt.Print("h ")
 
-	var otoCtx *Context
-	var readyChan struct{}
-	var err error
+	var otoCtx oto.*Context
+	var readyChan chan struct{}
 
 	if flag == 0 {
 		otoCtx, readyChan, err = oto.NewContext(op)
