@@ -6,7 +6,8 @@ import (
 
 type MPlayer struct {}
 
-func (MPlayer *MPlayer) Play(fileName string) error {
+func (MPlayer *MPlayer) Play(fileName string, flag int) error {
 	mplayer := exec.Command("mplayer", "-cache", "8092", "-", fileName)
+	flag == flag
 	return mplayer.Run()
 }
