@@ -33,9 +33,7 @@ func (n *Native) Play(fileName string, flag int) error {
  	*/
 	fmt.Print("d ")
 
-	if flag == 0 {
-		op := &oto.NewContextOptions{}
-	}
+	op := &oto.NewContextOptions{}
 
 	fmt.Print("e ")
 
@@ -55,7 +53,13 @@ func (n *Native) Play(fileName string, flag int) error {
 
 	fmt.Print("h ")
 
-	otoCtx, readyChan, err := oto.NewContext(op)
+	var otoCtx *Context
+	var readyChan struct{}
+	var err error
+
+	if flag == 0 {
+		otoCtx, readyChan, err = oto.NewContext(op)
+	}
 
 	/*
 	if err != nil {
