@@ -12,7 +12,7 @@ import (
 type Native struct {
 }
 
-func (n *Native) Play(fileName string, flag int) error {
+func (n *Native) Play(fileName string, f int) error {
 	// Read the mp3 file into memory
 
 	fmt.Print("a ")
@@ -60,7 +60,7 @@ func (n *Native) Play(fileName string, flag int) error {
 
 	fmt.Print("h2 ")
 
-	if flag == 0 {
+	if f == 0 {
 		otoCtx, readyChan, err = oto.NewContext(op)
 	}
 
@@ -72,7 +72,7 @@ func (n *Native) Play(fileName string, flag int) error {
 
 	fmt.Print("i ")
 
-	<-readyChan
+	time.Sleep(time.Second)
 
 	fmt.Print("j ")
 
