@@ -12,7 +12,7 @@ import (
 type Native struct {
 }
 
-func (n *Native) Play(fileName string) error {
+func (n *Native) Play(fileName string, flag int) error {
 	// Read the mp3 file into memory
 
 	fmt.Print("a ")
@@ -33,12 +33,14 @@ func (n *Native) Play(fileName string) error {
  	*/
 	fmt.Print("d ")
 
-	op := &oto.NewContextOptions{}
+	if flag == 0 {
+		op := &oto.NewContextOptions{}
+	}
 
 	fmt.Print("e ")
 
     	// Usually 44100 or 48000. Other values might cause distortions in Oto
-    	op.SampleRate = 44100
+    	op.SampleRate = 4800
 
 	fmt.Print("f ")
 
@@ -61,11 +63,9 @@ func (n *Native) Play(fileName string) error {
 	}
  	*/
 
-	readyChan = readyChan
+	<-readyChan
 
 	fmt.Print("i ")
-
-	time.Sleep(time.Second)
 
 	fmt.Print("j ")
 
@@ -78,7 +78,7 @@ func (n *Native) Play(fileName string) error {
 	fmt.Print("l ")
 
 	for player.IsPlaying() {
-		time.Sleep(time.Second)
+		time.Sleep(time.Millisecond)
 	}
 
 	fmt.Print("m ")
