@@ -9,6 +9,9 @@ import (
 	"github.com/ebitengine/oto/v3"
 )
 
+var OtoCtx *oto.Context
+var ReadyChan chan struct{}
+
 type Native struct {
 }
 
@@ -58,7 +61,7 @@ func (n *Native) Play(fileName string, f int) error {
 	fmt.Print("h2 ")
 
 	if f == 0 {
-		main.OtoCtx, main.ReadyChan, err = oto.NewContext(op)
+		OtoCtx, ReadyChan, err = oto.NewContext(op)
 	}
 
 	/*
@@ -69,11 +72,11 @@ func (n *Native) Play(fileName string, f int) error {
 
 	fmt.Print("i ")
 
-	<-main.ReadyChan
+	<-ReadyChan
 
 	fmt.Print("j ")
 
-	player := main.OtoCtx.NewPlayer(decodedMp3)
+	player := OtoCtx.NewPlayer(decodedMp3)
 
 	fmt.Print("k ")
 
