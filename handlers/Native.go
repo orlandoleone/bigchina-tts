@@ -58,7 +58,7 @@ func (n *Native) Play(fileName string, f int) error {
 	fmt.Print("h2 ")
 
 	if f == 0 {
-		otoCtx, readyChan, err = oto.NewContext(op)
+		OtoCtx, ReadyChan, err = oto.NewContext(op)
 	}
 
 	/*
@@ -69,11 +69,11 @@ func (n *Native) Play(fileName string, f int) error {
 
 	fmt.Print("i ")
 
-	<-readyChan
+	<-ReadyChan
 
 	fmt.Print("j ")
 
-	player := otoCtx.NewPlayer(decodedMp3)
+	player := OtoCtx.NewPlayer(decodedMp3)
 
 	fmt.Print("k ")
 
