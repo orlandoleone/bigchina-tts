@@ -38,7 +38,7 @@ func (n *Native) Play(fileName string, f int) error {
 	fmt.Print("e ")
 
     	// Usually 44100 or 48000. Other values might cause distortions in Oto
-    	op.SampleRate = 4800
+    	op.SampleRate = 48000
 
 	fmt.Print("f ")
 
@@ -53,10 +53,7 @@ func (n *Native) Play(fileName string, f int) error {
 
 	fmt.Print("h ")
 
-	var otoCtx *oto.Context
-
 	fmt.Print("h1 ")
-	var readyChan chan struct{}
 
 	fmt.Print("h2 ")
 
@@ -72,9 +69,7 @@ func (n *Native) Play(fileName string, f int) error {
 
 	fmt.Print("i ")
 
-	_ = readyChan
-
-	time.Sleep(time.Second)
+	<-readyChan
 
 	fmt.Print("j ")
 
